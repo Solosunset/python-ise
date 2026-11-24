@@ -65,7 +65,7 @@ Keep the existing name, version, description, readme, authors, Python floor, dep
 Run:
 
 ```bash
-uv build
+uv build --wheel
 uv run pytest -q
 uv run python -m python_ise.generate --check
 # High-signal leak check over HEAD: company email domain, internal host
@@ -74,7 +74,9 @@ uv run python -m python_ise.generate --check
 # Expect no matches.
 ```
 
-Expected: build succeeds, 142 tests pass, generate check passes, grep prints nothing.
+Expected: wheel builds, 142 tests pass, generate check passes, grep prints nothing.
+
+Note: use `uv build --wheel`, not `uv build`. The full build has a **pre-existing** hatchling `force-include` bug (confirmed on base `4283bf3`): the sdist flattens `src/` paths, so building the wheel from the sdist fails with `Forced include not found: .../src/python_ise/manifest/ers.yaml`. Direct wheel builds and all offline gates are unaffected. Fix the sdist packaging before adding `uv build` to CI in Phase 2.
 
 - [ ] **Step 4: Commit**
 
