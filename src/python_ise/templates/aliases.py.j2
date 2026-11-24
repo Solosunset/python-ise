@@ -1,0 +1,25 @@
+"""Generated compatibility registry. Do not edit; run python -m python_ise.generate."""
+
+from types import MappingProxyType
+
+# Legacy names keep their real hand-written ERS implementations; this registry
+# records the names promised by the manifest so drift is testable.
+LEGACY_NAMES: dict[str, tuple[str, ...]] = {
+{% for spec in specs %}
+    '{{ spec.name }}': (
+{% for name in spec.legacy_names %}
+        '{{ name }}',
+{% endfor %}
+    ),
+{% endfor %}
+}
+
+FACADE_SPECS: tuple[tuple[str, MappingProxyType], ...] = (
+{% for spec in specs %}
+    ('{{ spec.plural }}', MappingProxyType({
+{% for operation, method_name in spec.methods.items() %}
+        '{{ operation }}': '{{ method_name }}',
+{% endfor %}
+    })),
+{% endfor %}
+)

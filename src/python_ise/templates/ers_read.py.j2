@@ -1,0 +1,55 @@
+"""Generated ERS read methods. Do not edit; run python -m python_ise.generate."""
+
+class ERSGeneratedMethods:
+{% for spec in specs %}
+{% for operation, method_name in spec.methods.items() %}
+{% if operation == 'list' %}
+{% if spec.list_signature == 'size_page_filter' %}
+    def {{ method_name }}(self, size=20, page=1, *, filter: str | list = None) -> dict:
+{% else %}
+    def {{ method_name }}(self, filter: str | list = None, size=20, page=1) -> dict:
+{% endif %}
+        """List {{ spec.name }} resources."""
+        return self._get_objects(
+            f'{self.url_base}/{{ spec.path }}',
+            filter=filter,
+            size=size,
+            page=page,
+        )
+{% elif operation == 'by_id' %}
+    def {{ method_name }}(self, OID) -> dict:
+        """Get a {{ spec.name }} resource by id."""
+{% if spec.validate_oid %}
+        if not self._oid_test(OID):
+            from python_ise.python_ise import InvalidOID
+            raise InvalidOID(
+                f'{OID}. Must be in the form of 9h1713e4-jzeg-55ff-j59y-010y36061e95'
+            )
+{% endif %}
+        return self._get_object(
+            f'{self.url_base}/{{ spec.path }}',
+            OID,
+            '{{ spec.wrapper }}',
+        )
+{% elif operation == 'by_name' %}
+    def {{ method_name }}(self, name) -> dict:
+        """Get a {{ spec.name }} resource by name."""
+        return self._get_object(
+            f'{self.url_base}/{{ spec.path }}/name',
+            name,
+            '{{ spec.wrapper }}',
+        )
+{% elif operation == 'version_info' %}
+    def {{ method_name }}(self) -> dict:
+        """Get {{ spec.name }} version information."""
+        return self._get_object(
+            f'{self.url_base}/{{ spec.path }}/versioninfo',
+            '',
+            'VersionInfo',
+        )
+{% else %}
+{% set _ = unknown_operation(spec.name, operation) %}
+{% endif %}
+
+{% endfor %}
+{% endfor %}

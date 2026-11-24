@@ -1,0 +1,1230 @@
+- name: "aciBindings"
+  plural: "acibindings"
+  path: "config/acibindings"
+  wrapper: "VersionInfo"
+  methods:
+    version_info: "get_acibinding_versionInfo"
+  version: "3.x"
+  legacy_names:
+    - "get_aciBindings"
+  validate_oid: false
+  notes: >-
+    VersionInfo response key confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/acibindings/. get_aciBindings
+    is a get-all helper with a different response shape; it stays hand-written.
+  special: false
+- name: "aciSettings"
+  plural: "aci_settings"
+  path: "config/acisettings"
+  wrapper: "AciSettings"
+  methods:
+    version_info: "get_aciSettings_versionInfo"
+  version: "3.x"
+  legacy_names:
+    - "get_aciSettings"
+  validate_oid: false
+  notes: >-
+    Wrapper key 'AciSettings' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/acisettings/. get_aciSettings
+    reads a settings object at a trailing-slash path; it stays hand-written.
+  special: false
+- name: "activeDirectory"
+  plural: "active_directories"
+  path: "config/activedirectory"
+  wrapper: "ERSActiveDirectory"
+  methods:
+    list: "get_activeDirectories"
+    by_id: "get_activeDirectory_id"
+    by_name: "get_activeDirectory_name"
+    version_info: "get_activeDirectory_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ERSActiveDirectory' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/activedirectory/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "adminuser"
+  plural: "adminusers"
+  path: "config/adminuser"
+  wrapper: "AdminUser"
+  methods:
+    list: "get_adminusers"
+    by_id: "get_adminuser_id"
+    version_info: "get_adminuser_versionInfo"
+  version: "3.x"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'AdminUser' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/adminuser/. Legacy list method
+    defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "allowedProtocol"
+  plural: "allowed_protocols"
+  path: "config/allowedprotocols"
+  wrapper: "AllowedProtocols"
+  methods:
+    list: "get_allowedProtocols"
+    by_id: "get_allowedProtocol_id"
+    by_name: "get_allowedProtocol_name"
+    version_info: "get_allowedProtocol_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'AllowedProtocols' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/allowedprotocols/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "authorizationProfile"
+  plural: "authorization_profiles"
+  path: "config/authorizationprofile"
+  wrapper: "AuthorizationProfile"
+  methods:
+    list: "get_authorizationProfiles"
+    by_id: "get_authorizationProfile_id"
+    by_name: "get_authorizationProfile_name"
+    version_info: "get_authorizationProfile_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'AuthorizationProfile' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/authorizationprofile/.
+  special: false
+- name: "byodPortal"
+  plural: "byod_portals"
+  path: "config/byodportal"
+  wrapper: "BYODPortal"
+  methods:
+    list: "get_byodPortals"
+    by_id: "get_byodPortal_id"
+    version_info: "get_byodPortal_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'BYODPortal' observed on live ISE 3.2 ERS at config/byodportal; the Cisco docs use
+    'ByodPortal'. Legacy list method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "certificateProfile"
+  plural: "certificate_profiles"
+  path: "config/certificateprofile"
+  wrapper: "CertificateProfile"
+  methods:
+    list: "get_certificateProfiles"
+    by_id: "get_certificateProfile_id"
+    version_info: "get_certificateProfile_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'CertificateProfile' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/certificateprofile/. Legacy
+    list method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "certificateTemplate"
+  plural: "certificate_templates"
+  path: "config/certificatetemplate"
+  wrapper: "ERSCertificateTemplate"
+  methods:
+    list: "get_certificateTemplates"
+    by_id: "get_certificateTemplate_id"
+    by_name: "get_certificateTemplate_name"
+    version_info: "get_certificateTemplate_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ERSCertificateTemplate' observed on live ISE 3.2 ERS at config/certificatetemplate;
+    the Cisco docs use 'CertificateTemplate'. Legacy list method defaults to size=100; generated list
+    keeps contract size=20.
+  special: false
+- name: "downloadableACL"
+  plural: "downloadable_acls"
+  path: "config/downloadableacl"
+  wrapper: "DownloadableAcl"
+  methods:
+    list: "get_downloadableACLs"
+    by_id: "get_downloadableACL_id"
+    version_info: "get_downloadableACL_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'DownloadableAcl' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/downloadableacl/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "egressmatrixcell"
+  plural: "egressmatrixcells"
+  path: "config/egressmatrixcell"
+  wrapper: "EgressMatrixCell"
+  methods:
+    list: "get_egressmatrixcells"
+    by_id: "get_egressmatrixcell_id"
+    version_info: "get_egressMatrixCell_versionInfo"
+  version: "3.x"
+  legacy_names:
+    - "get_egressmatrixcell"
+    - "get_egressMatrixCell_bulk"
+    - "add_egressmatrixcell"
+    - "update_egressmatrixcell"
+    - "delete_egressmatrixcell"
+  validate_oid: true
+  notes: >-
+    Wrapper key 'EgressMatrixCell' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/egressmatrixcell/.
+    get_egressmatrixcell builds filter queries and extra result keys; bulk/add/update/delete stay
+    hand-written.
+  special: false
+- name: "endpoint"
+  plural: "endpoints"
+  path: "config/endpoint"
+  wrapper: "ERSEndPoint"
+  methods:
+    list: "get_endpoints"
+    by_id: "get_endpoint_id"
+    by_name: "get_endpoint_name"
+    version_info: "get_endpoint_versionInfo"
+  version: "3.x"
+  legacy_names:
+    - "get_endpoint_bulk"
+    - "get_endpoint_rejectedEndpoints"
+    - "get_endpoint_macAddress"
+    - "add_endpoint"
+    - "update_endpoint"
+    - "delete_endpoint"
+    - "get_all_endpoints"
+    - "async_get_all_endpoints"
+  validate_oid: true
+  notes: >-
+    Wrapper key 'ERSEndPoint' is the top-level key of tests/fixtures/ers/endpoint_by_id.json and is
+    confirmed by https://developer.cisco.com/docs/identity-services-engine/latest/endpoint/. Winning
+    get_endpoint_id (line 3407) calls _oid_test and raises InvalidOID; an earlier shadowed
+    definition exists. get_endpoint_macAddress raises InvalidMacAddress and uses /name/;
+    rejected-endpoint, bulk, write and get-all helpers stay hand-written. Bug fix (Task 3):
+    _get_all_objects and the get_all_endpoint_groups/get_all_endpoints-in-group page loops now use
+    ceiling division with a minimum of one page (total 0/1/100 -> 1, 101/200 -> 2); the old
+    total // 100 off-by-one is deliberately not preserved.
+  special: false
+- name: "endpointCert"
+  plural: "endpoint_certs"
+  path: "config/endpointcert"
+  wrapper: "VersionInfo"
+  methods:
+    version_info: "get_endpointCert_versionInfo"
+  version: "3.x"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    VersionInfo response key confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/endpointcert/. Only the
+    version-info read shape exists for this resource.
+  special: false
+- name: "endpointGroup"
+  plural: "endpoint_groups"
+  path: "config/endpointgroup"
+  wrapper: "EndPointGroup"
+  methods:
+    list: "get_endpointGroups"
+    by_id: "get_endpointGroup_id"
+    by_name: "get_endpointGroup_name"
+    version_info: "get_endpointGroup_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names:
+    - "get_endpoint_groups"
+    - "get_endpoint_group"
+    - "get_all_endpoint_groups"
+    - "async_get_all_endpoint_groups"
+  validate_oid: false
+  notes: >-
+    Wrapper key 'EndPointGroup' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/endpointgroup/.
+    get_endpoint_group accepts either a name or an OID and raises InvalidOID; get_endpoint_groups
+    and the get-all helpers stay hand-written.
+  special: false
+- name: "externalRadiusServer"
+  plural: "external_radius_servers"
+  path: "config/externalradiusserver"
+  wrapper: "ExternalRadiusServer"
+  methods:
+    list: "get_externalRadiusServers"
+    by_id: "get_externalRadiusServer_id"
+    by_name: "get_externalRadiusServer_name"
+    version_info: "get_externalRadiusServer_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ExternalRadiusServer' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/externalradiusserver/. Legacy
+    list method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "filterPolicy"
+  plural: "filter_policies"
+  path: "config/filterpolicy"
+  wrapper: "FilterPolicy"
+  methods:
+    list: "get_filterPolicies"
+    by_id: "get_filterPolicy_id"
+    version_info: "get_filterPolicy_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'FilterPolicy' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/filterpolicy/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "guestLocation"
+  plural: "guest_locations"
+  path: "config/guestlocation"
+  wrapper: "GuestLocation"
+  methods:
+    list: "get_guestLocations"
+    by_id: "get_guestLocation_id"
+    version_info: "get_guestLocation_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'GuestLocation' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/guestlocation/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20. Live ISE 3.2 rejects GET by
+    id with 405 ("Unsupported method exception"); the generated by-id method is kept for
+    compatibility but is not usable on that release.
+  special: false
+- name: "guestSmtpNotificationSetting"
+  plural: "guest_smtp_notification_settings"
+  path: "config/guestsmtpnotificationsettings"
+  wrapper: "ERSGuestSmtpNotificationSettings"
+  methods:
+    list: "get_guestSmtpNotificationSettings"
+    by_id: "get_guestSmtpNotificationSetting_id"
+    version_info: "get_guestSmtpNotificationSetting_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ERSGuestSmtpNotificationSettings' is the live ISE 3.2 top-level key and the path is
+    the plural config/guestsmtpnotificationsettings, both confirmed against the ERS SDK; the Cisco
+    docs use 'GuestSmtpNotificationSettings'. Legacy list method defaults to size=100; generated list
+    keeps contract size=20.
+  special: false
+- name: "guestSsid"
+  plural: "guest_ssids"
+  path: "config/guestssid"
+  wrapper: "GuestSsid"
+  methods:
+    list: "get_guestSsids"
+    by_id: "get_guestSsid_id"
+    version_info: "get_guestSsid_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'GuestSsid' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/guestssid/. Legacy list method
+    defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "guestType"
+  plural: "guest_types"
+  path: "config/guesttype"
+  wrapper: "GuestType"
+  methods:
+    list: "get_guestTypes"
+    by_id: "get_guestType_id"
+    version_info: "get_guestType_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'GuestType' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/guesttype/. Legacy list method
+    defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "guestUser"
+  plural: "guest_users"
+  path: "config/guestuser"
+  wrapper: "GuestUser"
+  methods:
+    list: "get_guestUsers"
+    by_id: "get_guestUser_id"
+    by_name: "get_guestUser_name"
+    version_info: "get_guestUser_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'GuestUser' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/guestuser/. Legacy list method
+    defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "hotspotPortal"
+  plural: "hotspot_portals"
+  path: "config/hotspotportal"
+  wrapper: "HotspotPortal"
+  methods:
+    list: "get_hotspotPortals"
+    by_id: "get_hotspotPortal_id"
+    version_info: "get_hotspotPortal_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'HotspotPortal' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/hotspotportal/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "identityGroup"
+  plural: "identity_groups"
+  path: "config/identitygroup"
+  wrapper: "IdentityGroup"
+  methods:
+    list: "get_identity_groups"
+    by_id: "get_identity_group_id"
+    by_name: "get_identity_group_name"
+    version_info: "get_identityGroup_versionInfo"
+  version: "3.x"
+  legacy_names:
+    - "get_identityGroup_id"
+    - "get_identityGroup_name"
+    - "get_identityGroups"
+  validate_oid: true
+  notes: >-
+    Wrapper key 'IdentityGroup' observed on live ISE 3.2 ERS at config/identitygroup; the Cisco docs
+    use 'EndPointGroup' for endpoint identity groups (RF-2 resolved against a live appliance).
+    Winning get_identity_group_id calls _oid_test and raises InvalidOID; older camelCase names stay
+    hand-written aliases.
+  special: false
+- name: "idStoreSequence"
+  plural: "id_store_sequences"
+  path: "config/idstoresequence"
+  wrapper: "IdStoreSequence"
+  methods:
+    list: "get_idStoreSequences"
+    by_id: "get_idStoreSequence_id"
+    by_name: "get_idStoreSequence_name"
+    version_info: "get_idStoreSequence_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'IdStoreSequence' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/idstoresequence/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "internalUser"
+  plural: "internal_users"
+  path: "config/internaluser"
+  wrapper: "InternalUser"
+  methods:
+    list: "get_users"
+    by_id: "get_user_id"
+    by_name: "get_user_name"
+    version_info: "get_internalUser_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names:
+    - "get_internalUser_id"
+    - "get_internalUser_name"
+    - "get_internalUsers"
+    - "add_user"
+    - "delete_user"
+  validate_oid: true
+  notes: >-
+    Wrapper key 'InternalUser' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/internaluser/. Winning
+    get_user_id calls _oid_test and raises InvalidOID; older get_internalUser_* names, add_user and
+    delete_user stay hand-written.
+  special: false
+- name: "ldap"
+  plural: "ldaps"
+  path: "config/ldap"
+  wrapper: "Ldap"
+  methods:
+    by_id: "get_ldap_id"
+    by_name: "get_ldap_name"
+  version: "3.x"
+  legacy_names:
+    - "get_ldap"
+    - "get_ldap_hosts"
+    - "get_ldap_issuerCertificates"
+    - "get_ldap_rootCaCertificates"
+  validate_oid: false
+  notes: >-
+    Wrapper key 'Ldap' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/LDAP/. get_ldap and the
+    host/certificate sub-resource reads use different paths and stay hand-written. Live ISE 3.2 audit:
+    config/ldap is not in SDK (the /ers/sdk inventory), and GET config/ldap?size=1&page=1 returns 500
+    on this deployment; generated by-id/by-name reads stay for compatibility.
+  special: false
+- name: "myDevicePortal"
+  plural: "my_device_portals"
+  path: "config/mydeviceportal"
+  wrapper: "MyDevicePortal"
+  methods:
+    list: "get_myDevicePortals"
+    by_id: "get_myDevicePortal_id"
+    version_info: "get_myDevicePortal_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'MyDevicePortal' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/mydeviceportal/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "networkDevice"
+  plural: "network_devices"
+  path: "config/networkdevice"
+  wrapper: "NetworkDevice"
+  methods:
+    list: "get_networkDevices"
+    by_id: "get_networkDevice_id"
+    by_name: "get_networkDevice_name"
+    version_info: "get_networkDevice_versionInfo"
+  version: "3.x"
+  legacy_names:
+    - "get_networkDevice_bulk"
+    - "add_device"
+    - "delete_device"
+  validate_oid: true
+  notes: >-
+    Wrapper key 'NetworkDevice' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/networkdevice/. Earlier
+    shadowed definitions exist; winning get_networkDevice_id calls _oid_test and raises InvalidOID.
+    Bulk/add/delete stay hand-written.
+  special: false
+- name: "networkDeviceGroup"
+  plural: "network_device_groups"
+  path: "config/networkdevicegroup"
+  wrapper: "NetworkDeviceGroup"
+  methods:
+    list: "get_networkDeviceGroups"
+    by_id: "get_networkDeviceGroup_id"
+    by_name: "get_networkDeviceGroup_name"
+    version_info: "get_networkDeviceGroup_versionInfo"
+  version: "3.x"
+  legacy_names: []
+  validate_oid: true
+  notes: >-
+    Wrapper key 'NetworkDeviceGroup' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/networkdevicegroup/. Earlier
+    shadowed definitions exist; winning get_networkDeviceGroup_id calls _oid_test and raises
+    InvalidOID.
+  special: false
+- name: "nspProfile"
+  plural: "nsp_profiles"
+  path: "config/nspprofile"
+  wrapper: "ERSNSPProfile"
+  methods:
+    list: "get_nspProfiles"
+    by_id: "get_nspProfile_id"
+    version_info: "get_nspProfile_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ERSNSPProfile' observed on live ISE 3.2 ERS at config/nspprofile; the Cisco docs use
+    'NSPProfile'. Legacy list method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "portal"
+  plural: "portals"
+  path: "config/portal"
+  wrapper: "ERSPortal"
+  methods:
+    list: "get_portals"
+    by_id: "get_portal_id"
+    version_info: "get_portal_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ERSPortal' observed on live ISE 3.2 ERS at config/portal; the Cisco docs use 'Portal'.
+    Legacy list method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "portalGlobalSetting"
+  plural: "portal_global_settings"
+  path: "config/portalglobalsetting"
+  wrapper: "PortalCustomizationGlobalSetting"
+  methods:
+    list: "get_portalGlobalSettings"
+    by_id: "get_portalGlobalSetting_id"
+    version_info: "get_portalGlobalSetting_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'PortalCustomizationGlobalSetting' observed on live ISE 3.2 ERS at
+    config/portalglobalsetting; the Cisco docs use 'PortalGlobalSetting'. Legacy list method defaults
+    to size=100; generated list keeps contract size=20.
+  special: false
+- name: "portalTheme"
+  plural: "portal_themes"
+  path: "config/portaltheme"
+  wrapper: "PortalTheme"
+  methods:
+    list: "get_portalThemes"
+    by_id: "get_portalTheme_id"
+    version_info: "get_portalTheme_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'PortalTheme' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/portaltheme/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "profilerProfile"
+  plural: "profiler_profiles"
+  path: "config/profilerprofile"
+  wrapper: "ProfilerProfile"
+  methods:
+    list: "get_profilerProfiles"
+    by_id: "get_profilerProfile_id"
+    version_info: "get_profilerProfile_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ProfilerProfile' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/profilerprofile/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "pxGridSettings"
+  plural: "pxgrid_settings"
+  path: "config/pxgridsettings"
+  wrapper: "VersionInfo"
+  methods:
+    version_info: "get_pxGridSettings_versionInfo"
+  version: "3.x"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    VersionInfo response key confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/pxgridsettings/. Only the
+    version-info read shape exists for this resource.
+  special: false
+- name: "radiusServerSequence"
+  plural: "radius_server_sequences"
+  path: "config/radiusserversequence"
+  wrapper: "RadiusServerSequence"
+  methods:
+    list: "get_radiusServerSequences"
+    by_id: "get_radiusServerSequence_id"
+    version_info: "get_radiusServerSequence_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'RadiusServerSequence' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/radiusserversequence/. Legacy
+    list method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "restIdStore"
+  plural: "rest_id_stores"
+  path: "config/restidstore"
+  wrapper: "RestIdStore"
+  methods:
+    list: "get_restIdStores"
+    by_id: "get_restIdStore_id"
+    by_name: "get_restIdStore_name"
+    version_info: "get_restIdStore_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'RestIdStore' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/restidstore/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "selfRegPortal"
+  plural: "self_reg_portals"
+  path: "config/selfregportal"
+  wrapper: "SelfRegPortal"
+  methods:
+    list: "get_selfRegPortals"
+    by_id: "get_selfRegPortal_id"
+    version_info: "get_selfRegPortal_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SelfRegPortal' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/selfregportal/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "sgacl"
+  plural: "sgacls"
+  path: "config/sgacl"
+  wrapper: "Sgacl"
+  methods:
+    list: "get_sgacls"
+    by_id: "get_sgacl_id"
+    version_info: "get_sgacl_versionInfo"
+  version: "3.x"
+  legacy_names:
+    - "get_sgacl_bulk"
+    - "get_sgacl_search"
+    - "add_sgacl"
+    - "update_sgacl"
+    - "delete_sgacl"
+  validate_oid: true
+  notes: >-
+    Wrapper key 'Sgacl' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sgacl/. Earlier shadowed
+    list/by-id definitions exist; winning get_sgacl_id calls _oid_test and raises InvalidOID.
+    Search, bulk and write helpers stay hand-written.
+  special: false
+- name: "sgMapping"
+  plural: "sg_mappings"
+  path: "config/sgmapping"
+  wrapper: "SgMapping"
+  methods:
+    list: "get_sgMappings"
+    by_id: "get_sgMapping_id"
+    version_info: "get_sgMapping_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names:
+    - "get_sgMapping_bulk"
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SgMapping' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sgmapping/. Legacy list method
+    defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "sgMappingGroup"
+  plural: "sg_mapping_groups"
+  path: "config/sgmappinggroup"
+  wrapper: "SgMappingGroup"
+  methods:
+    list: "get_sgMappingGroups"
+    by_id: "get_sgMappingGroup_id"
+    version_info: "get_sgMappingGroup_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names:
+    - "get_sgMappingGroup_bulk"
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SgMappingGroup' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sgmappinggroup/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "sgt"
+  plural: "sgts"
+  path: "config/sgt"
+  wrapper: "Sgt"
+  methods:
+    list: "get_sgts"
+    by_id: "get_sgt_id"
+    version_info: "get_sgt_versionInfo"
+  version: "3.x"
+  legacy_names:
+    - "get_sgt_search"
+    - "add_sgt"
+    - "update_sgt"
+    - "delete_sgt"
+  validate_oid: true
+  notes: >-
+    Wrapper key 'Sgt' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sgt/. Shadowed by-id, list and
+    version-info definitions exist; winning get_sgt_id calls _oid_test and raises InvalidOID. Search
+    and write helpers stay hand-written.
+  special: false
+- name: "sgtVnVlan"
+  plural: "sgt_vn_vlans"
+  path: "config/sgtvnvlan"
+  wrapper: "SgtVnVlan"
+  methods:
+    list: "get_sgtVnVlans"
+    by_id: "get_sgtVnVlan_id"
+    version_info: "get_sgtVnVlan_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names:
+    - "get_sgtVnVlan_bulk"
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SgtVnVlan' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sgtvnvlan/. Legacy list method
+    defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "smsProvider"
+  plural: "sms_providers"
+  path: "config/smsprovider"
+  wrapper: "SearchResult"
+  methods:
+    list: "get_smsProviders"
+    version_info: "get_smsProvider_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    SearchResult is the documented list response key at
+    https://developer.cisco.com/docs/identity-services-engine/latest/smsprovider/. Legacy has no
+    by-id/by-name method, so none is generated; version-info has its own documented response key.
+  special: false
+- name: "sponsoredGuestPortal"
+  plural: "sponsored_guest_portals"
+  path: "config/sponsoredguestportal"
+  wrapper: "SponsoredGuestPortal"
+  methods:
+    list: "get_sponsoredGuestPortals"
+    by_id: "get_sponsoredGuestPortal_id"
+    version_info: "get_sponsoredGuestPortal_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SponsoredGuestPortal' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sponsoredguestportal/. Legacy
+    list method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "sponsorGroup"
+  plural: "sponsor_groups"
+  path: "config/sponsorgroup"
+  wrapper: "SponsorGroup"
+  methods:
+    list: "get_sponsorGroups"
+    by_id: "get_sponsorGroup_id"
+    version_info: "get_sponsorGroup_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SponsorGroup' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sponsorgroup/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "sponsorGroupMember"
+  plural: "sponsor_group_members"
+  path: "config/sponsorgroupmember"
+  wrapper: "SearchResult"
+  methods:
+    list: "get_sponsorGroupMembers"
+    version_info: "get_sponsorGroupMember_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    SearchResult is the documented list response key at
+    https://developer.cisco.com/docs/identity-services-engine/latest/sponsorgroupmember/. Legacy has
+    no by-id/by-name method, so none is generated; version-info has its own documented response key.
+  special: false
+- name: "sponsorPortal"
+  plural: "sponsor_portals"
+  path: "config/sponsorportal"
+  wrapper: "SponsorPortal"
+  methods:
+    list: "get_sponsorPortals"
+    by_id: "get_sponsorPortal_id"
+    version_info: "get_sponsorPortal_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SponsorPortal' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sponsorportal/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "sxpConnection"
+  plural: "sxp_connections"
+  path: "config/sxpconnections"
+  wrapper: "ERSSxpConnection"
+  methods: {}
+  version: "3.x"
+  legacy_names:
+    - "get_sxpConnection_id"
+    - "get_sxpConnections"
+    - "get_sxpConnection_versionInfo"
+    - "get_sxpConnection_"
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ERSSxpConnection' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sxpconnections/. Legacy reads
+    use /config/sxpconnection and the unverified 'SxpConnection' key, and get_sxpConnection_
+    duplicates get_sxpConnection_id; the documented path/key differ, so all reads stay hand-written.
+  special: true
+- name: "sxpLocalBinding"
+  plural: "sxp_local_bindings"
+  path: "config/sxplocalbindings"
+  wrapper: "SxpLocalBinding"
+  methods:
+    list: "get_sxpLocalBindings"
+    by_id: "get_sxpLocalBinding_id"
+    version_info: "get_sxpLocalBinding_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names:
+    - "get_sxpLocalBinding_bulk"
+  validate_oid: false
+  notes: >-
+    Path config/sxplocalbindings is plural and live-verified on ISE 3.2; wrapper key 'SxpLocalBinding'
+    is unverified because the live list response was empty. Legacy list method defaults to size=100;
+    generated list keeps contract size=20.
+  special: false
+- name: "sxpVpn"
+  plural: "sxp_vpns"
+  path: "config/sxpvpns"
+  wrapper: "ERSSxpVpn"
+  methods: {}
+  version: "3.x"
+  legacy_names:
+    - "get_sxpVpn_id"
+    - "get_sxpVpns"
+    - "get_sxpVpn_versionInfo"
+    - "get_sxpVpn_bulk"
+  validate_oid: false
+  notes: >-
+    Wrapper key 'ERSSxpVpn' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/sxpvpns/. Legacy reads point at
+    /config/sxplocalbinding with the unverified 'SxpVpn' key; the documented path/key are
+    /config/sxpvpns and ERSSxpVpn, so all reads stay hand-written.
+  special: true
+- name: "systemCertificate"
+  plural: "system_certificates"
+  path: "config/systemcertificate"
+  wrapper: "VersionInfo"
+  methods:
+    version_info: "get_systemCertificate_versionInfo"
+  version: "3.x"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    VersionInfo response key confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/systemcertificate/. Only the
+    version-info read shape exists for this resource.
+  special: false
+- name: "tacacsCommandSet"
+  plural: "tacacs_command_sets"
+  path: "config/tacacscommandsets"
+  wrapper: "TacacsCommandSets"
+  methods:
+    list: "get_tacacsCommandSets"
+    by_id: "get_tacacsCommandSet_id"
+    by_name: "get_tacacsCommandSet_name"
+    version_info: "get_tacacsCommandSet_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'TacacsCommandSets' is the live ISE 3.2 top-level key and the path is the plural
+    config/tacacscommandsets, both confirmed against the ERS SDK; the Cisco docs use
+    'TacacsCommandSet'. Legacy list method defaults to size=100; generated list keeps contract
+    size=20.
+  special: false
+- name: "tacacsExternalServer"
+  plural: "tacacs_external_servers"
+  path: "config/tacacsexternalservers"
+  wrapper: "TacacsExternalServer"
+  methods:
+    list: "get_tacacsExternalServers"
+    by_id: "get_tacacsExternalServer_id"
+    by_name: "get_tacacsExternalServer_name"
+    version_info: "get_tacacsExternalServer_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Path config/tacacsexternalservers is plural and live-verified on ISE 3.2; wrapper key
+    'TacacsExternalServer' is unverified because the live list response was empty. Legacy list method
+    defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "tacacsProfile"
+  plural: "tacacs_profiles"
+  path: "config/tacacsprofile"
+  wrapper: "TacacsProfile"
+  methods:
+    list: "get_tacacsProfiles"
+    by_id: "get_tacacsProfile_id"
+    by_name: "get_tacacsProfile_name"
+    version_info: "get_tacacsProfile_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'TacacsProfile' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/tacacsprofile/. Legacy list
+    method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "tacacsServerSequence"
+  plural: "tacacs_server_sequences"
+  path: "config/tacacsserversequence"
+  wrapper: "TacacsServerSequence"
+  methods:
+    list: "get_tacacsServerSequences"
+    by_id: "get_tacacsServerSequence_id"
+    by_name: "get_tacacsServerSequence_name"
+    version_info: "get_tacacsServerSequence_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'TacacsServerSequence' confirmed by
+    https://developer.cisco.com/docs/identity-services-engine/latest/tacacsserversequence/. Legacy
+    list method defaults to size=100; generated list keeps contract size=20.
+  special: false
+- name: "ancPolicy"
+  plural: "anc_policies"
+  path: "config/ancpolicy"
+  wrapper: "ANCPolicy"
+  methods:
+    list: "get_ancPolicies"
+    by_id: "get_ancPolicy_id"
+    by_name: "get_ancPolicy_name"
+    version_info: "get_ancPolicy_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Path config/ancpolicy is live-verified on ISE 3.2, where the list response was empty; wrapper
+    key 'ANCPolicy' comes from the Cisco ERS docs/SDK and is unverified.
+  special: false
+- name: "node"
+  plural: "nodes"
+  path: "config/node"
+  wrapper: "Node"
+  methods:
+    list: "get_nodes"
+    by_id: "get_node_id"
+    by_name: "get_node_name"
+    version_info: "get_node_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'Node' observed on live ISE 3.2 ERS at config/node.
+  special: false
+- name: "sessionServiceNode"
+  plural: "session_service_nodes"
+  path: "config/sessionservicenode"
+  wrapper: "SessionServiceNode"
+  methods:
+    list: "get_sessionServiceNodes"
+    by_id: "get_sessionServiceNode_id"
+    by_name: "get_sessionServiceNode_name"
+    version_info: "get_sessionServiceNode_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SessionServiceNode' observed on live ISE 3.2 ERS at config/sessionservicenode.
+  special: false
+- name: "pxGridNode"
+  plural: "pxgrid_nodes"
+  path: "config/pxgridnode"
+  wrapper: "PxgridNode"
+  methods:
+    list: "get_pxGridNodes"
+    by_id: "get_pxGridNode_id"
+    by_name: "get_pxGridNode_name"
+    version_info: "get_pxGridNode_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Path config/pxgridnode is live-verified on ISE 3.2, where the list response was empty; wrapper
+    key 'PxgridNode' comes from the Cisco ERS docs/SDK and is unverified.
+  special: false
+- name: "ancEndpoint"
+  plural: "anc_endpoints"
+  path: "config/ancendpoint"
+  wrapper: "ANCEndPoint"
+  methods:
+    list: "get_ancEndpoints"
+    by_id: "get_ancEndpoint_id"
+    version_info: "get_ancEndpoint_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Path config/ancendpoint is live-verified on ISE 3.2, where the list response was empty. The live
+    by-name GET returned 405, so no by-name read shape is generated. Wrapper key 'ANCEndPoint' comes
+    from the Cisco ERS docs/SDK and is unverified.
+  special: false
+- name: "service"
+  plural: "services"
+  path: "config/service"
+  wrapper: "ERSService"
+  methods:
+    list: "get_services"
+    by_id: "get_service_id"
+    version_info: "get_service_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Path config/service is live-verified on ISE 3.2, where the list response held one resource with
+    null id and name and no by-id body was observed; wrapper key 'ERSService' comes from the Cisco
+    ERS docs/SDK and is unverified.
+  special: false
+- name: "telemetryInfo"
+  plural: "telemetry_infos"
+  path: "config/telemetryinfo"
+  wrapper: "TelemetryInfo"
+  methods:
+    list: "get_telemetryInfos"
+    by_id: "get_telemetryInfo_id"
+    version_info: "get_telemetryInfo_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'TelemetryInfo' observed on live ISE 3.2 ERS at config/telemetryinfo; live list
+    resources had no name field, so no by-name read shape is generated.
+  special: false
+- name: "supportBundleStatus"
+  plural: "support_bundle_statuses"
+  path: "config/supportbundlestatus"
+  wrapper: "SBStatus"
+  methods:
+    list: "get_supportBundleStatuses"
+    by_id: "get_supportBundleStatus_id"
+    version_info: "get_supportBundleStatus_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Wrapper key 'SBStatus' observed on live ISE 3.2 ERS at config/supportbundlestatus; live by-name
+    GET returned 405, so no by-name read shape is generated.
+  special: false
+- name: "threat"
+  plural: "threats"
+  path: "config/threat"
+  wrapper: "Threat"
+  methods:
+    version_info: "get_threat_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Live ISE 3.2 ERS list at config/threat returned 500 with no SearchResult body, so no
+    list/by-id/by-name read shapes are generated; wrapper key 'Threat' comes from the Cisco ERS
+    docs/SDK and is unverified. Only versioninfo returned 200.
+  special: false
+- name: "deploymentInfo"
+  plural: "deployment_infos"
+  path: "config/deploymentinfo"
+  wrapper: "DeploymentInfo"
+  methods:
+    version_info: "get_deploymentInfo_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Live ISE 3.2 ERS list, by-id and by-name GETs at config/deploymentinfo returned 405, so no
+    list/by-id/by-name read shapes are generated; wrapper key 'DeploymentInfo' comes from the Cisco
+    ERS docs/SDK and is unverified. Only versioninfo returned 200.
+  special: false
+- name: "restIdStoreAttribute"
+  plural: "rest_id_store_attributes"
+  path: "config/restidstoreattribute"
+  wrapper: "RestIDStoreAttribute"
+  methods:
+    version_info: "get_restIdStoreAttribute_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Live ISE 3.2 ERS read probes at config/restidstoreattribute returned 405, so no
+    list/by-id/by-name read shapes are generated; wrapper key 'RestIDStoreAttribute' comes from the
+    Cisco ERS docs/SDK and is unverified. Only versioninfo returned 200.
+  special: false
+- name: "restIdStoreSettings"
+  plural: "rest_id_store_settings"
+  path: "config/restidstoresettings"
+  wrapper: "ERRestIDStoreSettings"
+  methods:
+    version_info: "get_restIdStoreSettings_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Live ISE 3.2 ERS list at config/restidstoresettings returned a single 'ERRestIDStoreSettings'
+    envelope rather than a SearchResult, so no list/by-id/by-name read shapes are generated; wrapper
+    key 'ERRestIDStoreSettings' is a Cisco ERS docs/SDK fallback, not a live-verified resource body.
+    Only versioninfo returned 200.
+  special: false
+- name: "supportBundleDownload"
+  plural: "support_bundle_downloads"
+  path: "config/supportbundledownload"
+  wrapper: "SupportBundleDownload"
+  methods:
+    version_info: "get_supportBundleDownload_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Live ISE 3.2 ERS read probes at config/supportbundledownload returned 405, so no
+    list/by-id/by-name read shapes are generated; wrapper key 'SupportBundleDownload' comes from the
+    Cisco ERS docs/SDK and is unverified. Only versioninfo returned 200.
+  special: false
+- name: "supportBundle"
+  plural: "support_bundles"
+  path: "config/supportbundle"
+  wrapper: "SupportBundle"
+  methods:
+    version_info: "get_supportBundle_versionInfo"
+  version: "3.x"
+  list_signature: "size_page_filter"
+  legacy_names: []
+  validate_oid: false
+  notes: >-
+    Live ISE 3.2 ERS read probes at config/supportbundle returned 405, so no list/by-id/by-name
+    read shapes are generated; wrapper key 'SupportBundle' comes from the Cisco ERS docs/SDK and is
+    unverified. Only versioninfo returned 200.
+  special: false

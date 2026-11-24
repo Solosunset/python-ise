@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activeList>
+    <activeSession>
+        <name>alice</name>
+        <mac>AA:BB:CC:00:11:22</mac>
+        <ip>10.0.0.10</ip>
+        <sessionID>0A00000A00000001</sessionID>
+        <authenticationType>DOT1X</authenticationType>
+        <other_attr_string>foo=bar:!:</other_attr_string>
+    </activeSession>
+    <activeSession>
+        <name>bob</name>
+        <mac>AA:BB:CC:00:11:23</mac>
+        <ip>10.0.0.11</ip>
+        <sessionID>0A00000A00000002</sessionID>
+        <authenticationType>MAB</authenticationType>
+        <other_attr_string>baz=qux:!:</other_attr_string>
+    </activeSession>
+</activeList>
