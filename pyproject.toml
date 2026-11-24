@@ -6,6 +6,13 @@ readme = "README.md"
 authors = [
     { name = "SoloSunset", email = "mathias@mdkp.dk" }
 ]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = ["cisco", "ise", "ers", "mnt", "sdk"]
+urls = { Homepage = "https://github.com/Solosunset/python-ise", Issues = "https://github.com/Solosunset/python-ise/issues", Repository = "https://github.com/Solosunset/python-ise" }
 requires-python = ">=3.12"
 dependencies = [
     "aiohttp>=3.11.10",
