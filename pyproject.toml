@@ -30,13 +30,16 @@ dev = [
     "Jinja2>=3.1.5",
 ]
 
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/python_ise",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/python_ise"]
-
-[tool.hatch.build.force-include]
-"src/python_ise/manifest/ers.yaml" = "python_ise/manifest/ers.yaml"
-"src/python_ise/templates/ers_read.py.j2" = "python_ise/templates/ers_read.py.j2"
-"src/python_ise/templates/aliases.py.j2" = "python_ise/templates/aliases.py.j2"
 
 [build-system]
 requires = ["hatchling"]
