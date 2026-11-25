@@ -1,0 +1,24 @@
+name: Question
+description: Ask an actionable question about python-ise
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For open-ended discussion and ideas, use [GitHub Discussions](https://github.com/Solosunset/python-ise/discussions). Use this form only for a concrete, actionable question. Never include credentials, real hostnames, real IPs, logs, or customer data.
+  - type: textarea
+    id: tried
+    attributes:
+      label: What did you try?
+      description: A small credential-free example using a fake host such as ise.example.invalid.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: stuck
+    attributes:
+      label: Where did you get stuck?
+      description: What result or error did you see?
+    validations:
+      required: true

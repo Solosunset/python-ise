@@ -1,0 +1,56 @@
+name: Bug report
+description: Report a non-sensitive bug in python-ise
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Do not include credentials, real hostnames, real IPs, appliance logs, or customer data. For anything sensitive, use the private **Report a vulnerability** flow on the Security tab instead.
+  - type: input
+    id: version
+    attributes:
+      label: python-ise version
+      description: Which release or commit are you using?
+    validations:
+      required: true
+  - type: input
+    id: python_version
+    attributes:
+      label: Python version
+      description: For example, 3.12
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: A small credential-free code sample using a fake host such as ise.example.invalid.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: traceback
+    attributes:
+      label: Sanitized traceback
+      description: Remove any real hostnames, IPs, credentials, or customer data before pasting.
+      render: shell
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I confirm this report contains no secrets, real hostnames, real IPs, logs, or customer data
+          required: true
