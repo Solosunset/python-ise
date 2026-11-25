@@ -111,8 +111,8 @@ Do not open public issues for vulnerabilities or anything containing credentials
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+GPLv2 — see [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
 
 ## Credits
 
-The initial code for this project comes from [falkowich/pyise-ers](https://github.com/falkowich/pyise-ers).
+The initial code for this project comes from [falkowich/ise](https://github.com/falkowich/ise), with earlier contributors credited by that project including `bobthebutcher`, `mpenning`, `karrots`, and `msom`. See [NOTICE.md](NOTICE.md) for the full provenance and licensing attribution.

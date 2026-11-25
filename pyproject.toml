@@ -1,14 +1,14 @@
 [project]
 name = "python-ise"
 version = "0.1.4"
-description = "Library to interact with Cisco ISE's three APIs - ERS, MNT and OpenAPI"
+description = "Library to interact with Cisco ISE's ERS and MNT APIs"
 readme = "README.md"
 authors = [
     { name = "SoloSunset", email = "mathias@mdkp.dk" }
 ]
 license = { file = "LICENSE" }
 classifiers = [
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     "Programming Language :: Python :: 3.12",
 ]
 keywords = ["cisco", "ise", "ers", "mnt", "sdk"]
