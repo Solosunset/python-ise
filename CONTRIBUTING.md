@@ -14,6 +14,8 @@ uv run python -m python_ise.generate --check
 
 Both offline gates must pass before you start changing anything.
 
+For the release procedure and approval requirements, see [docs/releases.md](docs/releases.md).
+
 ## Adding an endpoint family
 
 1. Add or update the manifest entry in `src/python_ise/manifest/ers.yaml` for **one resource family**, using the exact method name and wrapper key from Cisco's ISE API docs. Cite the source in the entry's `notes`.

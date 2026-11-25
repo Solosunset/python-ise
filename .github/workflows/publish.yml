@@ -1,0 +1,70 @@
+name: publish
+
+"on":
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Release target"
+        type: choice
+        required: true
+        default: "testpypi"
+        choices:
+          - testpypi
+          - pypi
+      confirm:
+        description: "Type true to confirm this release"
+        type: string
+        required: true
+        default: "false"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --dev
+      - run: uv run pytest -q
+      - run: uv run python -m python_ise.generate --check
+      - run: uv build
+      - run: uvx twine check dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish-testpypi:
+    needs: build
+    if: "inputs.target == 'testpypi' && inputs.confirm == 'true'"
+    runs-on: ubuntu-latest
+    environment: testpypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          packages-dir: dist/
+
+  publish-pypi:
+    needs: build
+    if: "inputs.target == 'pypi' && inputs.confirm == 'true'"
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/

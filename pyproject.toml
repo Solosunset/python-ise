@@ -1,14 +1,14 @@
 [project]
 name = "python-ise"
 version = "0.1.4"
-description = "Library to interact with Cisco ISE's three APIs - ERS, MNT and OpenAPI"
+description = "Library to interact with Cisco ISE's ERS and MNT APIs"
 readme = "README.md"
 authors = [
     { name = "SoloSunset", email = "mathias@mdkp.dk" }
 ]
 license = { file = "LICENSE" }
 classifiers = [
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     "Programming Language :: Python :: 3.12",
 ]
 keywords = ["cisco", "ise", "ers", "mnt", "sdk"]
@@ -30,13 +30,16 @@ dev = [
     "Jinja2>=3.1.5",
 ]
 
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/python_ise",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/python_ise"]
-
-[tool.hatch.build.force-include]
-"src/python_ise/manifest/ers.yaml" = "python_ise/manifest/ers.yaml"
-"src/python_ise/templates/ers_read.py.j2" = "python_ise/templates/ers_read.py.j2"
-"src/python_ise/templates/aliases.py.j2" = "python_ise/templates/aliases.py.j2"
 
 [build-system]
 requires = ["hatchling"]
