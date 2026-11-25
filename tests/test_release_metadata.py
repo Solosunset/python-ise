@@ -37,3 +37,33 @@ def test_notice_credits_upstream() -> None:
     text = (ROOT / "NOTICE.md").read_text(encoding="utf-8")
     assert "falkowich/ise" in text
     assert "GPL-2.0-only" in text
+
+
+SOURCE_FILES = (
+    "src/python_ise/__init__.py",
+    "src/python_ise/client.py",
+    "src/python_ise/generate.py",
+    "src/python_ise/python_ise.py",
+    "src/python_ise/spec.py",
+    "src/python_ise/templates/ers_read.py.j2",
+    "src/python_ise/templates/aliases.py.j2",
+)
+
+GENERATED_FILES = (
+    "src/python_ise/generated/ers_read.py",
+    "src/python_ise/generated/aliases.py",
+)
+
+
+def test_source_files_carry_gpl_notice() -> None:
+    for relative_path in SOURCE_FILES:
+        text = (ROOT / relative_path).read_text(encoding="utf-8")
+        assert "GNU General Public License" in text, relative_path
+        assert "falkowich/ise" in text, relative_path
+
+
+def test_generated_files_carry_gpl_notice() -> None:
+    for relative_path in GENERATED_FILES:
+        text = (ROOT / relative_path).read_text(encoding="utf-8")
+        assert "GNU General Public License" in text, relative_path
+        assert "falkowich/ise" in text, relative_path
