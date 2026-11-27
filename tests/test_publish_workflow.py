@@ -16,7 +16,10 @@ def test_publish_workflow_is_manual_and_confirmed() -> None:
 
     inputs = triggers["workflow_dispatch"]["inputs"]
     assert inputs["target"]["type"] == "choice"
-    assert inputs["target"]["choices"] == ["testpypi", "pypi"]
+    # GitHub Actions requires `options` for choice inputs; `choices` renders an
+    # empty dropdown in the "Run workflow" UI.
+    assert "choices" not in inputs["target"]
+    assert inputs["target"]["options"] == ["testpypi", "pypi"]
     assert inputs["target"]["default"] == "testpypi"
     assert inputs["confirm"]["default"] == "false"
 

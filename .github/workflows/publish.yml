@@ -8,7 +8,7 @@ name: publish
         type: choice
         required: true
         default: "testpypi"
-        choices:
+        options:
           - testpypi
           - pypi
       confirm:
